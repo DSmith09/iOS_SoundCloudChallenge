@@ -122,7 +122,7 @@ extension MemoryGameViewController : UICollectionViewDelegate {
             alert.addAction(UIAlertAction(title: OK_ALERT, style: .default, handler: {
                 (action) in
                 self.dataStore.randomize()
-                self.restartGame(indexPath: self.indexPath)
+                self.restartGame(indexPath: indexPath)
                 self.dismiss(animated: true, completion: nil)
                 return
             }))

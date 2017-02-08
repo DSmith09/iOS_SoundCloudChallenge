@@ -11,8 +11,8 @@
 		AB0C85661E455A37003B7806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0C85641E455A37003B7806 /* Main.storyboard */; };
 		AB0C85681E455A37003B7806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0C85671E455A37003B7806 /* Assets.xcassets */; };
 		AB0C85731E455CDB003B7806 /* MemoryGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C85721E455CDB003B7806 /* MemoryGameViewController.swift */; };
-		AB0C85791E456142003B7806 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C85781E456142003B7806 /* CardStore.swift */; };
 		AB0C857D1E466B51003B7806 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C857C1E466B51003B7806 /* CardCollectionViewCell.swift */; };
+		ABFC47AA1E4B6C0C0056779F /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC47A91E4B6C0C0056779F /* CardStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +22,8 @@
 		AB0C85671E455A37003B7806 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB0C856C1E455A37003B7806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB0C85721E455CDB003B7806 /* MemoryGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryGameViewController.swift; sourceTree = "<group>"; };
-		AB0C85781E456142003B7806 /* CardStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardStore.swift; path = ../CardStore.swift; sourceTree = "<group>"; };
 		AB0C857C1E466B51003B7806 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		ABFC47A91E4B6C0C0056779F /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		AB0C85811E47C8FD003B7806 /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
-				AB0C85781E456142003B7806 /* CardStore.swift */,
+				ABFC47A91E4B6C0C0056779F /* CardStore.swift */,
 			);
 			name = "Data Store";
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFC47AA1E4B6C0C0056779F /* CardStore.swift in Sources */,
 				AB0C857D1E466B51003B7806 /* CardCollectionViewCell.swift in Sources */,
-				AB0C85791E456142003B7806 /* CardStore.swift in Sources */,
 				AB0C85611E455A37003B7806 /* AppDelegate.swift in Sources */,
 				AB0C85731E455CDB003B7806 /* MemoryGameViewController.swift in Sources */,
 			);

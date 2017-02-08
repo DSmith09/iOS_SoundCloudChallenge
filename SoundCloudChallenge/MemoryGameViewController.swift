@@ -22,7 +22,7 @@ class MemoryGameViewController: UIViewController {
     fileprivate let REUSE_IDENTIIFER = "CardCollectionViewCell"
     fileprivate let GAME_OVER_TITLE = "(╯°□°）╯︵ ┻━┻"
     fileprivate let GAME_OVER_MESSAGE = "Game Over!"
-    fileprivate let OK_ALERT = "Ok"
+    fileprivate let PLAY_AGAIN_ALERT = "Play Again"
     
     
     // MARK: Game Variables
@@ -119,7 +119,7 @@ extension MemoryGameViewController : UICollectionViewDelegate {
         removeCards()
         if isFinished() {
             let alert = UIAlertController(title: GAME_OVER_TITLE, message: GAME_OVER_MESSAGE, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: OK_ALERT, style: .default, handler: {
+            alert.addAction(UIAlertAction(title: PLAY_AGAIN_ALERT, style: .default, handler: {
                 (action) in
                 self.dataStore.randomize()
                 self.restartGame(indexPath: indexPath)

@@ -11,7 +11,7 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
     // MARK: View Variables
     var imageView: UIImageView!
-  
+    
     // MARK: Init
     override init(frame: CGRect) {
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -28,34 +28,43 @@ class CardCollectionViewCell: UICollectionViewCell {
     private func updateWithImage(card: TrackData?) {
         guard let cardData = card,
         let imageToView = cardData.image else {
-            imageView.image = nil
-            imageView.backgroundColor = UIColor.red
+            imageView.image = #imageLiteral(resourceName: "card_background")
             return
         }
         imageView.image = imageToView
     }
     
     // Turns Card Face Up
-    func TURN_UP(card: TrackData?) {
-        UIView.transition(with: contentView, duration: 1, options: .transitionCrossDissolve, animations: {
+    func turnUp(card: TrackData?) {
+        UIView.transition(with: contentView, duration: 0.5, options: .transitionCrossDissolve, animations: {
             self.updateWithImage(card: card)
         }, completion: nil)
     }
     
     // Turns Card Face Down
-    func TURN_DOWN_FOR_WHAT() {
-        UIView.transition(with: contentView, duration: 1, options: .transitionCrossDissolve, animations: {
+    func turnDown() {
+        UIView.transition(with: contentView, duration: 0.5, options: .transitionCrossDissolve, animations: {
             self.updateWithImage(card: nil)
         }, completion: nil)
     }
     
     // Removes Card From the View
-    func BYE_FELICIA() {
-        UIView.animate(withDuration: 1, animations: {
+    func removeFromView() {
+        UIView.animate(withDuration: 0.5, animations: {
             self.alpha = 0
         }, completion: {
             (result) in
             self.isHidden = true
+        })
+    }
+    
+    // Restores Card View
+    func restoreView() {
+        UIView.animate(withDuration: 0, animations: {
+            self.alpha = 1
+        }, completion: {
+            (result) in
+            self.isHidden = false
         })
     }
     

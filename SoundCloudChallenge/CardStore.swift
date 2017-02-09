@@ -55,7 +55,6 @@ class CardStore {
                         taskGroup.leave()
                         return
                     }
-                    print("Retrieved image; Storing in Card Store")
                     var mutableCard = card
                     mutableCard.setImage(image: image)
                     self.cards.append(mutableCard)

@@ -20,8 +20,8 @@ class MemoryGameViewController: UIViewController {
     fileprivate let ROWS: CGFloat = 4
     fileprivate let SPACING: CGFloat = 5
     fileprivate let REUSE_IDENTIIFER = "CardCollectionViewCell"
-    fileprivate let GAME_OVER_TITLE = "(╯°□°）╯︵ ┻━┻"
-    fileprivate let GAME_OVER_MESSAGE = "Game Over!"
+    fileprivate let GAME_OVER_TITLE = "Game Over!"
+    fileprivate let GAME_OVER_MESSAGE = "You Solved All The Tiles"
     fileprivate let PLAY_AGAIN_ALERT = "Play Again"
     
     
@@ -71,9 +71,10 @@ extension MemoryGameViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = UIColor.white
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIIFER)
         self.view.addSubview(collectionView)
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = UIColor.white
     }
     
     func startGame() {
@@ -89,7 +90,8 @@ extension MemoryGameViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: REUSE_IDENTIIFER, for: indexPath) as! CardCollectionViewCell
-        cell.backgroundColor = UIColor.red
+        // Swift 3 Image Literals
+        cell.imageView.image = #imageLiteral(resourceName: "card_background")
         return cell
     }
 }
@@ -103,7 +105,7 @@ extension MemoryGameViewController : UICollectionViewDelegate {
         selectedIndices.append(indexPath)
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         let card = dataStore.getTrackDataAtIndex(index: indexPath.row)
-        cell.TURN_UP(card: card)
+        cell.turnUp(card: card)
         guard selectedIndices.count == 2 else{
             return
         }
@@ -142,14 +144,15 @@ extension MemoryGameViewController {
 // MARK: Utility Functions
 extension MemoryGameViewController {
     func removeCards() {
-        delay(delay: 1, completion: {
+        delay(delay: 0.5, completion: {
             for index in self.selectedIndices {
                 let cell = self.collectionView.cellForItem(at: index) as! CardCollectionViewCell
-                cell.BYE_FELICIA()
+                cell.removeFromView()
             }
             self.selectedIndices = [IndexPath]()
         })
     }
+    
     func isFinished() -> Bool {
         if pairs == dataStore.getCount()/2 {
             return true
@@ -158,17 +161,19 @@ extension MemoryGameViewController {
     }
     
     func turnCardsDown() {
-        delay(delay: 1, completion: {
+        delay(delay: 0.5, completion: {
             for index in self.selectedIndices {
                 let cell = self.collectionView.cellForItem(at: index) as! CardCollectionViewCell
-                cell.TURN_DOWN_FOR_WHAT()
+                cell.turnDown()
             }
             self.selectedIndices = [IndexPath]()
         })
     }
     
-    // TODO: Implement Function to Restart Game
     func restartGame(indexPath: IndexPath) {
+        for cell in collectionView.visibleCells as! [CardCollectionViewCell] {
+            cell.restoreView()
+        }
         startGame()
     }
 }

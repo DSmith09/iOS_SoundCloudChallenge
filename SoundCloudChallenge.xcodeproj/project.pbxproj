@@ -77,6 +77,7 @@
 		AB0C85821E47C91B003B7806 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB0C857C1E466B51003B7806 /* CardCollectionViewCell.swift */,
 				AB0C85641E455A37003B7806 /* Main.storyboard */,
 			);
 			name = Views;
@@ -85,7 +86,6 @@
 		AB0C85831E47C93A003B7806 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB0C857C1E466B51003B7806 /* CardCollectionViewCell.swift */,
 				AB0C85721E455CDB003B7806 /* MemoryGameViewController.swift */,
 			);
 			name = Controllers;
